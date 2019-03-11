@@ -1,0 +1,38 @@
+{
+  "name": "ihakccinput",
+  "version": "1.0.0",
+  "description": "A react-native component that takes and validates credit card details.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihak/IHAKCCInput.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "credit-card",
+    "credit-card input",
+    "form",
+    "card",
+    "input",
+    "component",
+    "react-component",
+    "react-native-component",
+    "credit",
+    "card",
+    "creditcard"
+  ],
+  "bugs": {
+    "url": "https://github.com/ihak/IHAKCCInput/issues"
+  },
+  "homepage": "https://github.com/ihak/IHAKCCInput#readme",
+  "author": "Hassan Ahmed Khan <hassandotahmed@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "card-validator": "^6.1.0"
+  }
+}
