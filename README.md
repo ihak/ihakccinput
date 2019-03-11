@@ -31,6 +31,9 @@ npm i ihakccinput --save
 ```shell
 yarn add ihakccinput
 ```
+## Dependency
+Uses [credit-card](https://www.npmjs.com/package/credit-card) module for credit card validation.
+
 ## Usage
 
 ```js
@@ -57,19 +60,12 @@ import { IHAKCCInput } from 'ihakccinput';
 ## Props
 | Property | Type | Description
 --- | --- | ---
-
 showName | Bool | Show and hide the card holder name field
-
 style | style prop | Style prop
-
 validStyle | style prop | Configures the look of input fields when input is valid
-
 invalidStyle | style prop | Configures the look of input fields when input is invalid
-
 defaultStyle | style prop | Configures the look of input field when empty
-
 placeholderColor | String | Placehlder color
-
 onValid | function | Called when information is provided is valid. Passes card, 
 expiry, code and name as arguments.
 
@@ -78,7 +74,7 @@ Callback is called when any of one of card, expiry or code field has a valid val
 ```onValid``` callback provides three arguments namely card, expiry and code.
 
 ### card 
-- ccCard: Credit card object provided by credit-card module.
+- ccCard: Credit card object provided by [credit-card](https://www.npmjs.com/package/credit-card) module.
 - isValid: Bool showing if the number is valid. (Always true).
 - length: Max length of number.
 - number: Credit card number entered.
@@ -90,7 +86,7 @@ Callback is called when any of one of card, expiry or code field has a valid val
 
 ### code
 - isValid: Bool showing if the security number is valid. Checks the length of code to validate.
-- ccCode: Security code object provided by credit-card module.
+- ccCode: Security code object provided by [credit-card](https://www.npmjs.com/package/credit-card) module.
 - number: Security number entered.
 
 ### name
