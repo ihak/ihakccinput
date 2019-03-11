@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ihak/IHAKCCInput.git"
+    "url": "git+https://github.com/ihak/ihakccinput.git"
   },
   "keywords": [
     "react-native",
@@ -27,9 +27,9 @@
     "creditcard"
   ],
   "bugs": {
-    "url": "https://github.com/ihak/IHAKCCInput/issues"
+    "url": "https://github.com/ihak/ihakccinput/issues"
   },
-  "homepage": "https://github.com/ihak/IHAKCCInput#readme",
+  "homepage": "https://github.com/ihak/ihakccinput#readme",
   "author": "Hassan Ahmed Khan <hassandotahmed@gmail.com>",
   "license": "ISC",
   "dependencies": {
