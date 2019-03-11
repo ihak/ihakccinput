@@ -36,7 +36,7 @@ export default class IHAKCCInput extends Component {
 	static defaultProps = {
 		fontFamily: Platform.select({ ios: "Courier", android: "monospace" }),
 		invalidStyle: {
-			borderColor: "blue"
+			borderColor: "red"
 		},
 		validStyle: {
 			borderColor: "green"
@@ -57,7 +57,7 @@ export default class IHAKCCInput extends Component {
 	}
 
 	onValidCardDetails() {
-		this.props.onValid(this.state.card, this.state.expiry, this.state.code);
+		this.props.onValid(this.state.card, this.state.expiry, this.state.code, this.state.name);
 	}
 
 	onCardNumberChange(text) {
@@ -103,18 +103,21 @@ export default class IHAKCCInput extends Component {
 			code.number = text;
 
 			return { code };
-		});
-
-		if (valid) {
-			this.onValidCardDetails();
-		}
+		}, () => {
+	    	if (valid) {
+	     		this.onValidCardDetails();
+	    	}
+        });
 	}
 
 	onNameChange(text) {
-		this.setState({ name: text });
+		this.setState({ name: text }, 
+        () => {
+            if(text.length > 0) {
+                this.onValidCardDetails();
+            }
+        });
 	}
-
-	onSubmit() {}
 
 	validateCardNumber(number) {
 		let validation = valid.number(number);
@@ -134,17 +137,17 @@ export default class IHAKCCInput extends Component {
 							ccCode: validation.card.code
 						}
 					};
-				});
+				}, () => {
+                    if(validation.isValid) {
+                        this.onValidCardDetails();
+                    }
+                });
 			} else {
 				this.resetCard();
 			}
 		} else {
 			this.resetCard();
 		}
-
-		if(validation.isValid) {
-			this.onValidCardDetails();
-			}
 	}
 
 	validateExpiryDate(date) {
@@ -158,11 +161,11 @@ export default class IHAKCCInput extends Component {
 			expiry.isValid = validation.isValid;
 
 			return { expiry };
-		});
-
-		if(validation.isValid) {
-			this.onValidCardDetails();
-		}
+		}, () => {
+		    if(validation.isValid) {
+		    	this.onValidCardDetails();
+		    }
+        });
 	}
 
 	resetCard() {

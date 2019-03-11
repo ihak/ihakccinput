@@ -29,8 +29,8 @@ export default class App extends Component<Props> {
 	defaultStyle={{borderColor: "gray"}}
 	placeholderColor="gray"
 	onValid={
-		(card, expiry, code) => {
-			console.log(card, expiry, code);
+		(card, expiry, code, name) => {
+			console.log(card, expiry, code, name);
 			console.log("Valid number entered");
 		}
 		}

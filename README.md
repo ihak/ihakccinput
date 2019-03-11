@@ -43,18 +43,18 @@ import { IHAKCCInput } from 'ihakccinput';
 ```js
 <IHAKCCInput 
     showName 
-    style={{ fontSize: 20, color: "brown", margin: 5, padding: 2 }} 
-	validStyle={{borderColor: "blue"}} 
-	invalidStyle={{borderColor: "orange"}}
-	defaultStyle={{borderColor: "purple"}}
-	placeholderColor="pink"
+    style={{ fontSize: 20, color: "black", margin: 5, padding: 2 }} 
+	validStyle={{borderColor: "green"}} 
+	invalidStyle={{borderColor: "red"}}
+	defaultStyle={{borderColor: "gray"}}
+	placeholderColor="gray"
 	onValid={
-		(card, expiry, code) => {
-			console.log(card, expiry, code);
+		(card, expiry, code, name) => {
+			console.log(card, expiry, code, name);
 			console.log("Valid number entered");
 		}
 	}
-	/>
+/>
 ```
 
 ## Props
@@ -66,12 +66,11 @@ validStyle | style prop | Configures the look of input fields when input is vali
 invalidStyle | style prop | Configures the look of input fields when input is invalid
 defaultStyle | style prop | Configures the look of input field when empty
 placeholderColor | String | Placehlder color
-onValid | function | Called when information is provided is valid. Passes card, 
-expiry, code and name as arguments.
+onValid | callback function | Called when information is provided is valid. Passes card, expiry, code and name as arguments.
 
-## Callback
-Callback is called when any of one of card, expiry or code field has a valid value.
-```onValid``` callback provides three arguments namely card, expiry and code.
+## 'onValid' Callback
+```onValid``` is called when any one of card, expiry or code field has a valid value.
+```onValid``` callback provides four arguments namely card, expiry, code and name.
 
 ### card 
 - ccCard: Credit card object provided by [credit-card](https://www.npmjs.com/package/credit-card) module.
